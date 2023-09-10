@@ -43,6 +43,16 @@ export const clusterApi = createApi({
         body: JSON.stringify({answers: answers}),
       }),
     }),
+    makeFile: builder.mutation({
+      query: (answers) => ({
+        url: '/json',
+        headers: {
+          'Content-type': 'application/json; charset=UTF-8',
+        },
+        method: 'POST',
+        body: JSON.stringify({answers: answers}),
+      }),
+    }),
   }),
 })
 
@@ -51,4 +61,5 @@ export const {
   useClusterTextHistMutation,
   useClusterTextScatterMutation,
   useClusterTextBubbleMutation,
+  useMakeFileMutation
 } = clusterApi

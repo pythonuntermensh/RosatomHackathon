@@ -1,11 +1,19 @@
+'use client'
+
 import Button from '@/components/Button'
 import Link from 'next/link'
 import Box from '@/components/Box'
 import {MdOutlineStart} from 'react-icons/md'
 import Image from 'next/image'
+import {useState} from 'react'
+import Loader from '@/components/Loader'
 
 export default function Home() {
-  return (
+  const [isLoading, setIsLoading] = useState<boolean>()
+
+  return isLoading ? (
+    <Loader />
+  ) : (
     <div className='w-full h-full flex flex-col items-center justify-center p-2'>
       <Box className='w-full sm:w-[75%]'>
         <h1 className='w-[90%] md:w-[75%] text-center text-3xl'>
@@ -15,8 +23,11 @@ export default function Home() {
           SHA-256
         </h2>
 
-        <Link href='/main' className='my-6 sm:my-10'>
-          <Button className='w-[170px] flex items-center justify-center gap-x-3'>
+        <Link href={'/main'} className='my-6 sm:my-10'>
+          <Button
+            className='w-[170px] flex items-center justify-center gap-x-3'
+            onClick={() => setIsLoading(true)}
+          >
             <p className='text-xl'>Старт</p>
             <MdOutlineStart size={25} />
           </Button>
@@ -87,7 +98,6 @@ export default function Home() {
             />
           </div>
         </div>
-
       </Box>
     </div>
   )

@@ -4,11 +4,6 @@ import Input from '@/components/Input'
 import Button from '@/components/Button'
 import React, {useState} from 'react'
 import toast from 'react-hot-toast'
-import {
-  useClusterTextBubbleMutation,
-  useClusterTextHistMutation,
-  useClusterTextScatterMutation,
-} from '@/redux/services/ClusterApi'
 import {v4 as uuidv4} from 'uuid'
 import {AiFillDelete, AiOutlinePlusCircle} from 'react-icons/ai'
 import {BsArrowUpRight} from 'react-icons/bs'
